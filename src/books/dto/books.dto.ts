@@ -6,6 +6,7 @@ import {
   IsUrl,
   MinLength,
   IsOptional,
+  ArrayNotEmpty,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -48,5 +49,6 @@ export class BookDTO {
 
   @IsArray()
   @IsString({ each: true })
+  @ArrayNotEmpty({ message: 'Authors cannot be empty' })
   authors: string[];
 }
